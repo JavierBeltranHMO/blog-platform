@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <%= link_to "HomePage", root_path, class: "navbar-brand" %>
+    <%= link_to "Home", root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -16,11 +16,11 @@
             <%= link_to "Blogs", blogs_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+            <%= button_to "Log Out", destroy_user_session_path, method: 'delete', class: "nav-link" %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
