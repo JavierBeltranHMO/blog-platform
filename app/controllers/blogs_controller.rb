@@ -19,6 +19,10 @@ before_action :authenticate_user!, only: %i[new update destroy]
   def edit
   end
 
+  def myblogs
+    @blogs=Blog.where(user_id: current_user.id)
+  end
+
   # POST /blogs or /blogs.json
   def create
     @blog = Blog.new(blog_params)

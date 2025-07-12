@@ -9,6 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <% if user_signed_in? %>
+          <%= link_to "My Posts", blogs_myblogs_path, class: "navbar-brand" %>
           <li class="nav-item">
             <span class="navbar-text me-3">Welcome, <%= current_user.email %></span>
           </li>
