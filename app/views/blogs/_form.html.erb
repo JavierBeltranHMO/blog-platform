@@ -21,6 +21,9 @@
     <%= form.text_field :body %>
   </div>
 
+<%# User ID number field %>
+    <%= form.number_field :user_id, value:current_user.id, style:"display:none;" %>
+
   <div>
     <%= form.submit %>
   </div>

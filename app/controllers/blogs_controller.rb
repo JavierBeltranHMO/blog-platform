@@ -65,6 +65,6 @@ before_action :authenticate_user!, only: %i[new update destroy]
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.expect(blog: [ :title, :body ])
+      params.require(:blog).permit(:title,:body,:user_id)
     end
 end
