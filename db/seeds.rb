@@ -9,8 +9,8 @@
 #   end
 
 Blog.create([
-  {title: 'First post', body: 'First stuff'},
-  {title: 'Second post', body: 'Second stuff'},
-  {title: 'Third post', body: 'Third stuff'},
-  {title: 'Fourth post', body: 'Fourth stuff'}
+  {title: 'First post', body: 'First stuff', user_id:1},
+  {title: 'Second post', body: 'Second stuff', user_id:1},
+  {title: 'Third post', body: 'Third stuff', user_id:1},
+  {title: 'Fourth post', body: 'Fourth stuff', user_id:1}
 ])

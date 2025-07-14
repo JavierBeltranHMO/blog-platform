@@ -20,7 +20,11 @@ before_action :authenticate_user!, only: %i[new update destroy]
   end
 
   def myblogs
-    @blogs=Blog.where(user_id: current_user.id)
+    if current_user
+      @blogs=Blog.where(user_id: current_user.id)
+    else
+      redirect_to root_path
+    end
   end
 
   # POST /blogs or /blogs.json
