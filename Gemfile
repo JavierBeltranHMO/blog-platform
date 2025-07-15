@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "rails", "~> 8.0.2"
 gem "propshaft"
-gem "sqlite3", ">= 2.1"
+#gem "sqlite3", ">= 2.1"
 gem "puma", ">= 5.0"
 gem "importmap-rails"
 gem "turbo-rails"
@@ -27,6 +27,7 @@ gem "thruster", require: false
 gem 'devise', '~> 4.9', '>= 4.9.4'
 gem 'friendly_id', '~> 5.5.0'
 gem 'ransack'
+gem 'pg', '~> 1.5', '>= 1.5.9'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
