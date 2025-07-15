@@ -7,8 +7,12 @@
   <p class="card-text">
     <%= blog.body %>
   </p>
-  <p class="text-muted mb-0">
-    <strong>Made by</strong>
-    <%= link_to blog.user.user_name, blog.user, class:"text-decoration-none" %>
-  </p>
+  <% if blog.user.present? %>
+    <p class="text-muted mb-0">
+      <strong>Made by</strong>
+      <%= link_to blog.user.user_name, blog.user, class:"text-decoration-none" %>
+    </p>
+  <% else %>
+    <p class="text-muted mb-0"><em>Unknown author</em></p>
+  <% end %>
 </div>
