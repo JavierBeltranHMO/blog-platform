@@ -1,17 +1,14 @@
-<%# if blog.user_id == current_user.id %>
-<div id="<%= dom_id blog %>">
-
-  <h3>
-    <%= blog.title %>
-  </h3>
-
-  <p>
+<div id="<%= dom_id blog %>" class="card mb-3 shadow-sm">
+  <div class="card-body">
+    <h3>
+      <%= blog.title %>
+    </h3>
+  </div>
+  <p class="card-text">
     <%= blog.body %>
   </p>
-  <p>
-  <strong>Made by</strong>
-    <%= link_to blog.user.user_name, blog.user %>
+  <p class="text-muted mb-0">
+    <strong>Made by</strong>
+    <%= link_to blog.user.user_name, blog.user, class:"text-decoration-none" %>
   </p>
-
 </div>
-<%# end %>
