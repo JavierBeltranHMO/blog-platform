@@ -1,8 +1,18 @@
-<div id="blogs">
-  <% @blogs.each do |blog| %>
-    <%= render blog %>
-    <p>
-      <%= link_to "Show this blog", blog %>
-    </p>
-  <% end %>
+<div class="container mt-5">
+  <h2 class="mb-4">My Posts</h2>
+  <div class="row row-cols-1 row-cols-md-2 g-4" id="blogs">
+    <% @blogs.each do |blog| %>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><%= blog.title%> </h5>
+            <p class="card-text text-truncate">
+              <%= truncate(blog.body, length:100) %>
+            </p>
+            <%= link_to "Show this blog", blog_path(blog), class:"btn btn-outline-primary btn-sm" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
