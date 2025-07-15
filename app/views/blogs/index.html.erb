@@ -1,26 +1,29 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Blogs" %>
-
-<%= search_form_for @q, url:blogs_path, method: :get do |f| %>
-  <div>
-    <%= f.label :title_cont, "Search by Title" %>
-    <%= f.search_field :title_cont, placeholder: "Enter title" %>
+<% if notice %>
+  <div class="alert alert-success text-center"> <%= notice %></div>
+<% end %>
+<div class="container my-4">
+  <h1 class="mb-4">Blogs</h1>
+</div>
+<%= search_form_for @q, url:blogs_path, method: :get, html: {class:"row g-3 align-items-center mb-4"} do |f| %>
+  <div class="col-auto">
+    <%= f.label :title_cont, "Search by Title", class:"col-form-label" %>
   </div>
-  <div>
-    <%= f.submit "Search" %>
+  <div class="col-auto">
+    <%= f.search_field :title_cont, placeholder: "Enter title", class:"form-control" %>
+  </div>
+  <div class="col-auto">
+    <%= f.submit "Search", class: "btn-primary" %>
   </div>
 <%end%>
-
-<h1>Blogs</h1>
-
-<div id="blogs">
+<div id="blogs" class="list-group mb-4">
   <% @blogs.each do |blog| %>
-    <%= render blog %>
-    <p>
-      <%= link_to "Show this blog", blog %>
-    </p>
+    <div class="list-group-item">
+      <%= render blog %>
+      <div class="mt-2">
+        <%= link_to "Show this blog", blog, class:"btn btn-sm btn-outline-secondary" %>
+      </div>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New blog", new_blog_path %>
+<%= link_to "New blog", new_blog_path, class:"btn btn-success" %>
