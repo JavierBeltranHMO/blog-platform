@@ -30,6 +30,7 @@ gem 'ransack'
 gem 'pg', '~> 1.5', '>= 1.5.9'
 gem 'htmlbeautifier'
 
+
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
