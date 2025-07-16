@@ -1,10 +1,28 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @blog %>
-
-<div>
-  <%= link_to "Edit this blog", edit_blog_path(@blog) %> |
-  <%= link_to "Back to blogs", blogs_path %>
-
-  <%= button_to "Destroy this blog", @blog, method: :delete %>
+<div class="d-flex justify-content-between align-items-start">
+  <h1><%= @blog.title%></h1>
+  <% if current_user == @blog.user %>
+    .
+    <div class="dropdown">
+      <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="blogMenu" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-three-dots-vertical"></i>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="blogMenu">
+        <li>
+          <%= link_to "Edit", edit_blog_path(@blog), class: "dropdown-item" %>
+        </li>
+        <li>
+          <%= button_to "Delete", @blog, method: :delete, form:{ data: { turbo_confirm: "Are you sure?" }}, class: "dropdown-item text-danger" %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
 </div>
+<p class="lead mt-3"> <%= @blog.body%> </p>
+<% if @blog.user.present? %>
+  <p class="text-muted mb-0">
+    <strong>Made by</strong>
+    <%= link_to @blog.user.user_name, @blog.user, class:"text-decoration-none" %>
+  </p>
+<% else %>
+  <p class="text-muted mb-0"><em>Deleted</em></p>
+<% end %>
