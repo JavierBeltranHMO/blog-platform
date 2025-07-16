@@ -2,7 +2,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class:"needs-validation" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="mb-3">
-    <%= f.label :email, class:"form-label" %><br />
+    <%= f.label :email, class:"form-label" %>
     <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email" %>
   </div>
   <div class="mb-3">
@@ -23,7 +23,7 @@
     <% end %>
   </div>
   <div class="mb-3">
-    <%= f.label :password_confirmation, class:"form-label" %><br />
+    <%= f.label :password_confirmation, class:"form-label" %>
     <%= f.password_field :password_confirmation, class:"form-control", autocomplete: "new-password" %>
   </div>
   <div class="mb-3">
@@ -37,16 +37,20 @@
 <% end %>
 <hr class="my-4">
 <h3>Cancel my account</h3>
-<p class="text-muted">Unhappy?</p>
-<div class="text-center mt-4">
-  <%= button_to "Cancel my account",
-      registration_path(resource_name),
+<p class="text-muted">Do you want to delete your blogs along with your account?</p>
+<div class="form-check mb-3">
+  <%= form_with url: cancel_account_path, method: :delete, data: {turbo:false} do |f|%>
+    <%= f.check_box :delete_blogs, class: "form-check-input" %>
+    <%= f.label :delete_blogs, "Delete my blogs", class:"form-check-label" %><br>
+    <%= button_to "Cancel my account",
+      cancel_account_path,
       method: :delete,
       class: "btn btn-outline-danger mb-4",
       data: {
         controller: "confirm",
         action: "confirm#ask",
-        confirm_message: "Are you absolutely sure you want to delete your account?"
+        confirm_message_value: "Are you absolutely sure you want to delete your account?"
       } %>
-</div>
+  </div>
+<% end %>
 <%= link_to "Back", request.referrer || root_path, class:"btn btn-secondary"%>
