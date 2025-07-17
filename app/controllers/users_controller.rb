@@ -3,13 +3,16 @@ class UsersController < ApplicationController
   def show
     @user=User.find(params[:id])
   end
-
   def cancel_account
     delete_blogs=params[:delete_blogs]=="1"
-    if delete_blogs
-      current_user.blogs.destroy_all
+    user=current_user
+    if user.valid_password?(params[:current_password])
+      user.blogs.destroy_all if delete_blogs
+      user.destroy
+      sign_out user
+      redirect_to root_path, notice: "Your account was deleted succesfully."
+    else
+      redirect_to root_path, alert: "Incorrect password, account not deleted"
     end
-    current_user.destroy
-    redirect_to root_path, notice: "Your account was deleted succesfully."
   end
 end

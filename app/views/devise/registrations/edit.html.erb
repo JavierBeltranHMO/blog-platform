@@ -36,21 +36,31 @@
   </div>
 <% end %>
 <hr class="my-4">
-<h3>Cancel my account</h3>
-<p class="text-muted">Do you want to delete your blogs along with your account?</p>
-<div class="form-check mb-3">
-  <%= form_with url: cancel_account_path, method: :delete, data: {turbo:false} do |f|%>
-    <%= f.check_box :delete_blogs, class: "form-check-input" %>
-    <%= f.label :delete_blogs, "Delete my blogs", class:"form-check-label" %><br>
-    <%= button_to "Cancel my account",
-      cancel_account_path,
-      method: :delete,
-      class: "btn btn-outline-danger mb-4",
-      data: {
-        controller: "confirm",
-        action: "confirm#ask",
-        confirm_message_value: "Are you absolutely sure you want to delete your account?"
-      } %>
-  </div>
-<% end %>
 <%= link_to "Back", request.referrer || root_path, class:"btn btn-secondary"%>
+<button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Cancel my account</button>
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= form_with url: cancel_account_path, method: :delete, local:true do |f| %>
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmDeleteLabel">Confirm Account Deletion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+        </div>
+        <div class="modal-body">
+          <p>Please enter your password to confirm account deletion.</p>
+          <div class="mb-3">
+            <%= f.password_field :current_password, placeholder:"Password", class:"form-control", required:true %>
+          </div>
+          <div class="form-check mb-3">
+            <%= f.check_box :delete_blogs, class:"form-check-input" %>
+            <%= f.label :delete_blogs, "Delete my blogs", class:"form-check-label" %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <%= f.submit "Delete Account", class:"btn btn-danger" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
