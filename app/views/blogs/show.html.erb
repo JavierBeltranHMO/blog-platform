@@ -3,7 +3,7 @@
   <% if user_signed_in? && current_user == @blog.user %>
     .
     <div class="dropdown">
-      <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="blogMenu" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="blogMenu" data-bs-toggle="dropdown" data-turbo="false" aria-expanded="false">
         <i class="bi bi-three-dots-vertical"></i>
       </button>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="blogMenu">
