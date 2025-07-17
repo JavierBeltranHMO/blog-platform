@@ -15,10 +15,19 @@
 <%end%>
 <div id="blogs" class="list-group mb-4">
   <% @blogs.each do |blog| %>
-    <div class="list-group-item">
-      <%= render blog %>
-      <div class="mt-2">
-        <%= link_to "Show this blog", blog, class:"btn btn-sm btn-outline-secondary" %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h3><%= link_to blog.title, blog_path(blog), class:"text-decoration-none text-dark" %> </h3>
+        <p class="text-muted">
+          by 
+          <% if blog.user.present? %>
+            <%= link_to blog.user.user_name, blog.user, class: "text-decoration-none" %>
+          <% else %>
+            <em>Deleted</em>
+          <% end %>
+        </p>
+        <%= truncate(strip_tags(blog.body.to_s), length:200) %>
+        <%= link_to "Read More", blog_path(blog), class:"btn btn-sm btn-outline-secondary mt-2" %>
       </div>
     </div>
   <% end %>
