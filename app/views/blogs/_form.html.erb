@@ -15,10 +15,9 @@
   </div>
   <div class="mb-3">
     <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body, class:"form-control", rows:5, required: true %>
+    <%= form.rich_text_area :body, class:"form-control", rows:5, required: true %>
   </div>
   <%# User ID number field %>
-  <%= form.hidden_field :user_id, value:current_user.id %>
   <div class="d-grid">
     <%= form.submit class:"btn btn-primary" %>
   </div>

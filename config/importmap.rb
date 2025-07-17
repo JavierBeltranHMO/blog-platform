@@ -147,3 +147,5 @@ pin "which-builtin-type" # @1.2.1
 pin "which-collection" # @1.0.2
 pin "which-typed-array" # @1.1.19
 pin "xmlhttprequest" # @1.2.2
+pin "trix"
+pin "@rails/actiontext", to: "actiontext.esm.js"
