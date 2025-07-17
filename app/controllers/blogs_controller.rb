@@ -1,16 +1,17 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: %i[ show edit update destroy ]
-before_action :authenticate_user!, only: %i[new update destroy]
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :set_blog, only: %i[ edit update destroy ]
+  before_action :authorize_user!, only: %i[ edit update destroy ]
+
   # GET /blogs or /blogs.json
   def index
-    @blogs = Blog.all
-
-      @q = Blog.ransack(params[:q])
-  @blogs = @q.result(distinct: true)
+    @q = Blog.ransack(params[:q])
+    @blogs = @q.result(distinct: true)
   end
 
   # GET /blogs/1 or /blogs/1.json
   def show
+    @blog=Blog.friendly.find(params[:id])
   end
 
   # GET /blogs/new
@@ -24,7 +25,7 @@ before_action :authenticate_user!, only: %i[new update destroy]
 
   def myblogs
     if current_user
-      @blogs=Blog.where(user_id: current_user.id)
+      @blogs=current_iser.blogs
     else
       redirect_to root_path
     end
@@ -32,7 +33,7 @@ before_action :authenticate_user!, only: %i[new update destroy]
 
   # POST /blogs or /blogs.json
   def create
-    @blog = Blog.new(blog_params)
+    @blog = current_user.blogs.new(blog_params)
 
     respond_to do |format|
       if @blog.save
@@ -74,8 +75,14 @@ before_action :authenticate_user!, only: %i[new update destroy]
       @blog = Blog.friendly.find(params[:id])
     end
 
+    def authorize_user!
+      unless @blog.user==current_user
+        redirect_to blogs_path, alert: "You don't have permission to do that."
+      end
+    end
+
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title,:body,:user_id)
+      params.require(:blog).permit(:title, :body)
     end
 end
