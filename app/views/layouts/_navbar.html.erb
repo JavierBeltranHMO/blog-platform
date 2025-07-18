@@ -20,6 +20,11 @@
               <li>
                 <%= link_to "View Profile", user_path(current_user), class: "dropdown-item" %>
               </li>
+              <% if current_user.admin? %>
+                <li>
+                  <%= link_to "Admin Panel", admin_dashboard_path, class:"dropdown-item" %>
+                </li>
+              <% end %>
             </ul>
           </div>
           <li class="nav-item">

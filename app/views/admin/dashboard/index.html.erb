@@ -1,0 +1,46 @@
+<h1>Admin Dashboard</h1>
+<h2>Users</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Username</th>
+      <th>Admin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %> </td>
+        <td><%= user.email %> </td>
+        <td><%= user.user_name %> </td>
+        <td><%= user.admin? ? "Yes" : "No" %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<h2>Blogs</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.id %> </td>
+        <td><%= blog.title %> </td>
+        <td><%= blog.user.try(:user_name) || "Deleted" %> </td>
+        <td>
+          <%= link_to "View", blog_path(blog), class: "btn btn-sm btn-outline-primary" %>
+          <%= link_to "Delete", blog_path(blog), method: :delete, data: { turbo_confirm: "Are you sure?" }, class:"btn btn-sm btn-outline-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
