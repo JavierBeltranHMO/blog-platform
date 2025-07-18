@@ -21,7 +21,7 @@
         <p class="text-muted">
           by 
           <% if blog.user.present? %>
-            <%= link_to blog.user.user_name, blog.user, class: "text-decoration-none" %>
+            <%= link_to blog.user.user_name, user_path(blog.user), class: "text-decoration-none" %>
           <% else %>
             <em>Deleted</em>
           <% end %>

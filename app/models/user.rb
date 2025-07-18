@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :blogs
+  extend FriendlyId
+  friendly_id :user_name, use: :slugged
 end

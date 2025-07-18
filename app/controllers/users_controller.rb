@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   def show
-    @user=User.find(params[:id])
+    @user=User.friendly.find(params[:id])
   end
   def cancel_account
     delete_blogs=params[:delete_blogs]=="1"
