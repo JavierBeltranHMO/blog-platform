@@ -11,15 +11,15 @@ class User < ApplicationRecord
 
   validate :avatar_type
 
+  def admin?
+    role=="admin"
+  end
+
   private
 
   def avatar_type
     if avatar.attached? && !avatar.content_type.in?(%w[image/png image/jpg image/jpeg])
       errors.add(:avatar, "must be a PNG or JPG")
     end
-  end
-
-  def admin?
-    role=="admin"
   end
 end

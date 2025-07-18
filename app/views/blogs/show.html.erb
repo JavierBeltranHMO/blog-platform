@@ -8,10 +8,14 @@
       </button>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="blogMenu">
         <li>
-          <%= link_to "Edit", edit_blog_path(@blog), class: "dropdown-item" %>
+          <% if policy(@blog).edit? %>
+            <%= link_to "Edit", edit_blog_path(@blog), class: "dropdown-item" %>
+          <% end %>
         </li>
         <li>
-          <%= button_to "Delete", @blog, method: :delete, form:{ data: { turbo_confirm: "Are you sure?" }}, class: "dropdown-item text-danger" %>
+          <% if policy(@blog).destroy? %>
+            <%= button_to "Delete", @blog, method: :delete, form:{ data: { turbo_confirm: "Are you sure?" }}, class: "dropdown-item text-danger" %>
+          <% end %>
         </li>
       </ul>
     </div>
