@@ -25,7 +25,7 @@ class BlogsController < ApplicationController
 
   def myblogs
     if current_user
-      @blogs=current_iser.blogs
+      @blogs=current_user.blogs
     else
       redirect_to root_path
     end
