@@ -6,7 +6,8 @@ class BlogsController < ApplicationController
   # GET /blogs or /blogs.json
   def index
     @q = Blog.ransack(params[:q])
-    @blogs = @q.result(distinct: true)
+    # @blogs = @q.result(distinct: true)
+    @blogs = @q.result
 
     case params[:sort]
     when "date_desc"
@@ -14,9 +15,9 @@ class BlogsController < ApplicationController
     when "date_asc"
       @blogs=@blogs.order(created_at: :asc)
     when "author_desc"
-      @blogs=@blogs.left_outer_joins(:user).order(Arel.sql("users.user_name DESC NULLS LAST"))
+      @blogs=@blogs.left_outer_joins(:user).reorder(Arel.sql("users.user_name DESC NULLS LAST"))
     when "author_asc"
-      @blogs=@blogs.left_outer_joins(:user).order(Arel.sql("users.user_name ASC NULLS LAST"))
+      @blogs=@blogs.left_outer_joins(:user).reorder(Arel.sql("users.user_name ASC NULLS LAST"))
     when "title_desc"
       @blogs=@blogs.order(title: :desc)
     when "title_asc"
