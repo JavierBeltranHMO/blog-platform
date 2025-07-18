@@ -5,6 +5,11 @@
   <div class="card shadow-sm">
     <div class="card-body">
       <h2 class="card-title">
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar.variant(resize_to_limit: [100,100]), class:"rounded-circle" %>
+        <% else %>
+          <%= image_tag "default-avatar.jpg", class:"rounded-circle" %>
+        <% end %>
         <%= @user.user_name.presence %>
       </h2>
       <hr>

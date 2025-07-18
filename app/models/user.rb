@@ -4,6 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :blogs
+  has_one_attached :avatar
+
   extend FriendlyId
   friendly_id :user_name, use: :slugged
+
+  validate :avatar_type
+
+  private
+
+  def avatar_type
+    if avatar.attached? && !avatar.content_type.in?(%w[image/png image/jpg image/jpeg])
+      errors.add(:avatar, "must be a PNG or JPG")
+    end
+  end
 end
