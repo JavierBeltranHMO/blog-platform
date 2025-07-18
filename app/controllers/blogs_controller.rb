@@ -1,11 +1,10 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_blog, only: %i[ edit update destroy ]
-  before_action :authorize_user!, only: %i[ edit update destroy ]
 
   # GET /blogs or /blogs.json
   def index
-    @q = Blog.ransack(params[:q])
+    @q = policy_scope(Blog).ransack(params[:q])
     # @blogs = @q.result(distinct: true)
     @blogs = @q.result
 
@@ -39,6 +38,7 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1/edit
   def edit
+    authorize @blog
   end
 
   def myblogs
@@ -79,6 +79,7 @@ class BlogsController < ApplicationController
 
   # DELETE /blogs/1 or /blogs/1.json
   def destroy
+    authorize @blog
     @blog.destroy!
 
     respond_to do |format|
@@ -91,12 +92,6 @@ class BlogsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
       @blog = Blog.friendly.find(params[:id])
-    end
-
-    def authorize_user!
-      unless @blog.user==current_user
-        redirect_to blogs_path, alert: "You don't have permission to do that."
-      end
     end
 
     # Only allow a list of trusted parameters through.
