@@ -1,6 +1,6 @@
 <% content_for :title, "Blogs" %>
 <div class="container my-4">
-  <h1 class="mb-4">TODO title</h1>
+  <h1 class="mb-4">Blog Platform</h1>
 </div>
 <%= search_form_for @q, url:blogs_path, method: :get, html: {class:"row g-3 align-items-center mb-4"} do |f| %>
   <div class="col-auto">
@@ -13,6 +13,19 @@
     <%= f.submit "Search", class: "btn-primary" %>
   </div>
 <%end%>
+<%= form_with url: blogs_path, method: :get, local:true do %>
+  <div class="mb-3">
+    <%= label_tag :sort, "Sort by:" %>
+    <%= select_tag :sort, options_for_select([
+      ['Date(Newest)', 'date_desc'],
+      ['Date(Oldest)', 'date_asc'],
+      ['Author(A-Z)', 'author_asc'],
+      ['Author(Z-A)', 'author_desc'],
+      ['Title(A-Z)', 'title_asc'],
+      ['Title(Z-A)', 'title_desc'],
+    ], params[:sort]), onchange: 'this.form.submit()' %>
+  </div>
+<% end %>
 <div id="blogs" class="list-group mb-4">
   <% @blogs.each do |blog| %>
     <div class="card mb-3">
