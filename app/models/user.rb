@@ -18,4 +18,8 @@ class User < ApplicationRecord
       errors.add(:avatar, "must be a PNG or JPG")
     end
   end
+
+  def admin?
+    role=="admin"
+  end
 end
