@@ -38,6 +38,7 @@
           <% else %>
             <em>Deleted</em>
           <% end %>
+          Created <%= formatted_blog_date(blog) %>
         </p>
         <%= truncate(strip_tags(blog.body.to_s), length:200) %>
         <%= link_to "Read More", blog_path(blog), class:"btn btn-sm btn-outline-secondary mt-2" %>
