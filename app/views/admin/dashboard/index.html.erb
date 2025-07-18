@@ -38,7 +38,7 @@
         <td><%= blog.user.try(:user_name) || "Deleted" %> </td>
         <td>
           <%= link_to "View", blog_path(blog), class: "btn btn-sm btn-outline-primary" %>
-          <%= link_to "Delete", blog_path(blog), method: :delete, data: { turbo_confirm: "Are you sure?" }, class:"btn btn-sm btn-outline-danger" %>
+          <%= button_to "Delete", blog_path(blog), method: :delete, data: { turbo_confirm: "Are you sure?" }, class:"btn btn-sm btn-outline-danger" %>
         </td>
       </tr>
     <% end %>
