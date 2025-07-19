@@ -1,0 +1,9 @@
+<h2>Confirm Deletion</h2>
+<p>To delete <%= @user.user_name %>, enter your password: </p>
+<%= form_with url: destroy_with_password_admin_user_path(@user), method: :delete do |form|  %>
+  <div class="mb-3">
+    <%= form.label :password %>
+    <%= form.password_field :password, class: "form-control" %>
+  </div>
+  <%= form.submit "Confirm Delete", class: "btn btn-danger" %>
+<% end %>

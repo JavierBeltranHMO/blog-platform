@@ -1,0 +1,32 @@
+<h1>Users</h1>
+<table class="table-hover">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Blogs</th>
+      <th>Joined</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.user_name %> </td>
+        <td><%= user.email %> </td>
+        <td><%= user.admin? ? "Admin" : "User" %> </td>
+        <td><%= user.blogs.count %> </td>
+        <td><%= user.created_at.strftime("%B %d, %Y") %> </td>
+        <td>
+          <% if user != current_user %>
+            <%= link_to "Delete", confirm_destroy_admin_user_path(user), class:"btn btn-sm btn-outline-danger" %>
+            <%= button_to (user.admin? ? "Make User" : "Make Admin"), toggle_role_admin_user_path(user), method: :patch, class:"btn btn-sm btn-outline-secondary" %>
+          <% else %>
+            <em>(You)</em>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

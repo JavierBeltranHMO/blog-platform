@@ -9,9 +9,24 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <% if user_signed_in? %>
           <%= link_to "My Posts", blogs_myblogs_path, class: "navbar-brand" %>
+          <% if current_user.admin? %>
+            <div class="dropdown navbar-brand">
+              <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="blogMenu" data-bs-toggle="dropdown" data-turbo="false" aria-expanded="false">
+                Admin Panel
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="blogMenu">
+                <li>
+                  <%= link_to "Admin Blogs", admin_dashboard_path, class:"dropdown-item" %>
+                </li>
+                <li>
+                  <%= link_to "Admin Users", admin_users_path, class:"dropdown-item" %>
+                </li>
+              </ul>
+            </div>
+          <% end %>
           <div class="dropdown navbar-brand">
             <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="blogMenu" data-bs-toggle="dropdown" data-turbo="false" aria-expanded="false">
-              Settings<i class="bi bi-three-dots-vertical"></i>
+              Settings
             </button>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="blogMenu">
               <li>
@@ -20,11 +35,6 @@
               <li>
                 <%= link_to "View Profile", user_path(current_user), class: "dropdown-item" %>
               </li>
-              <% if current_user.admin? %>
-                <li>
-                  <%= link_to "Admin Panel", admin_dashboard_path, class:"dropdown-item" %>
-                </li>
-              <% end %>
             </ul>
           </div>
           <li class="nav-item">
