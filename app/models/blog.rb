@@ -1,7 +1,7 @@
 class Blog < ApplicationRecord
     belongs_to :user
     has_rich_text :body
-    has_mmany :comments, dependent: :destroy
+    has_many :comments, dependent: :destroy
     extend FriendlyId
     friendly_id :title, use: :slugged
     validate :featured_limit, if: :featured?
