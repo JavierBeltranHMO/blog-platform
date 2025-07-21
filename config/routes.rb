@@ -25,6 +25,11 @@ Rails.application.routes.draw do
     end
   end
 
+  # comments
+  resources :blogs do
+    resources :comments, only: [:create]
+  end
+
   # health  check and root
   get "up" => "rails/health#show", as: :rails_health_check
   root "blogs#index"
