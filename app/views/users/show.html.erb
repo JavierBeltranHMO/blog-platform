@@ -5,6 +5,7 @@
   <div class="card shadow-sm">
     <div class="card-body">
       <h2 class="card-title">
+        <%# Profile pic %>
         <% if @user.avatar.attached? %>
           <%= image_tag @user.avatar.variant(resize_to_limit: [100,100]), class:"rounded-circle" %>
         <% else %>
@@ -13,6 +14,10 @@
         <%= @user.user_name.presence %>
       </h2>
       <hr>
+      <%# Bio %>
+      <% if @user.bio.present? %>
+        <p><strong>Bio:</strong><%= @user.bio%> </p>
+      <% end %>
       <p><strong>Email:</strong><%= @user.email %> </p>
       <p><strong>Username:</strong><%= @user.user_name %> </p>
       <p><strong>Member since:</strong><%= @user.created_at.strftime("%d %B %Y") %> </p>
