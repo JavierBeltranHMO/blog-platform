@@ -4,9 +4,10 @@ class BlogsController < ApplicationController
 
   # GET /blogs or /blogs.json
   def index
-    @q = policy_scope(Blog).ransack(params[:q])
-    # @blogs = @q.result(distinct: true)
-    @blogs = @q.result
+    # @q = policy_scope(Blog).ransack(params[:q])
+    # @blogs = @q.result
+    @q=Blog.ransack(params[:q])
+    @blogs=@q.result.includes(:user)
 
     case params[:sort]
     when "date_desc"
