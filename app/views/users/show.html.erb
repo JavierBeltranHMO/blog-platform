@@ -28,3 +28,12 @@
     </div>
   </div>
 </div>
+<h3 class="mb-3">Featured Blogs</h3>
+<% @user.blogs.where(featured:true).limit(3).each do |blog| %>
+<div class="card mb-3 shadow-sm rounded-3 border-0">
+  <div class="card-body">
+    <h5 class="card-title mb-2"><%= link_to blog.title, blog_path(blog), class:"text-decoration-none text-dark fw-semibold" %> </h5>
+    <p class="card-text text-muted mb-0"><%= truncate(blog.body.to_plain_text, length:100)%> </p>
+  </div>
+</div>
+<% end %>

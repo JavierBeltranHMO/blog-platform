@@ -3,7 +3,14 @@ class Blog < ApplicationRecord
     has_rich_text :body
     extend FriendlyId
     friendly_id :title, use: :slugged
+    validate :featured_limit, if: :featured?
 
+    def featured_limit
+        if user.blogs.where(featured: true).count >=3
+            errors.add(:featured, "limit reached. You can only have 3 featured blogs")
+        end
+    end
+    
     def self.ransackable_associations(auth_object = nil)
         [ "user" ]
     end
