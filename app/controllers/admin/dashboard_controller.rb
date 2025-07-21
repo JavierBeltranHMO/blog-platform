@@ -3,7 +3,8 @@ class Admin::DashboardController < ApplicationController
   before_action :authorize_admin!
   def index
     @users =User.all
-    @blogs=Blog.all
+    @q=Blog.ransack(params[:q])
+    @blogs=@q.result.includes(:user)
   end
 
   private

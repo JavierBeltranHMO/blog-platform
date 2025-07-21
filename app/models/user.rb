@@ -15,6 +15,11 @@ class User < ApplicationRecord
     role=="admin"
   end
 
+
+  def self.ransackable_attributes(auth_object = nil)
+    [ "user_name" ]
+  end
+
   private
 
   def avatar_type
@@ -22,4 +27,5 @@ class User < ApplicationRecord
       errors.add(:avatar, "must be a PNG or JPG")
     end
   end
+
 end

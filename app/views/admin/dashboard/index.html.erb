@@ -21,6 +21,31 @@
   </tbody>
 </table>
 <h2>Blogs</h2>
+<%= search_form_for @q, url:admin_dashboard_path, method: :get, html: {class:"row g-3 mb-4"} do |f| %>
+  <div class="col-md-4">
+    <%= f.label :title_cont, "Title contains"%>
+    <%= f.search_field :title_cont, class:"form-control" %>
+  </div>
+
+  <div class="col-md-4">
+    <%= f.label :user_user_name_cont, "Author contains"%>
+    <%= f.search_field :user_user_name_cont, class:"form-control" %>
+  </div>
+
+  <div class="col-md-4">
+    <%= f.label :created_at_gteq, "Created after"%>
+    <%= f.search_field :created_at_gteq, class:"form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :created_at_lteq, "Created before"%>
+    <%= f.search_field :created_at_lteq, class:"form-control" %>
+  </div>
+
+  <div class="col-md-12">
+    <%= f.submit "Filter", class:"btn btn-ouline-primary" %>
+    <%= link_to "Clear", admin_dashboard_path, class: "btn btn-outline-secondary ms-2" %>
+  </div>
+  <% end %>
 <table class="table">
   <thead>
     <tr>

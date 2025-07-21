@@ -28,12 +28,12 @@ gem 'devise', '~> 4.9', '>= 4.9.4'
 gem 'friendly_id', '~> 5.5.0'
 gem 'ransack'
 gem 'pg', '~> 1.5', '>= 1.5.9'
-gem 'htmlbeautifier'
 gem "image_processing", "~> 1.14"
 gem "pundit", "~> 2.5"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+  gem 'htmlbeautifier'
 
   gem "brakeman", require: false
 
