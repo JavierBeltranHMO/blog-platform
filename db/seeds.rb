@@ -8,9 +8,72 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Blog.create([
-  {title: 'First post', body: 'First stuff', user_id:1},
-  {title: 'Second post', body: 'Second stuff', user_id:1},
-  {title: 'Third post', body: 'Third stuff', user_id:1},
-  {title: 'Fourth post', body: 'Fourth stuff', user_id:1}
-])
+#create users
+admin2=User.create!(
+  user_name:"admin2",
+  email:"admin2@example.com",
+  password:"qweqwe",
+  password_confirmation:"qweqwe",
+  role:"admin"
+)
+
+user1=User.create!(
+  user_name:"person1",
+  email:"person1@example.com",
+  password:"qweqwe",
+  password_confirmation:"qweqwe",
+  role:"user"
+)
+
+user2=User.create!(
+  user_name:"person2",
+  email:"person2@example.com",
+  password:"qweqwe",
+  password_confirmation:"qweqwe",
+  role:"user"
+)
+
+user3=User.create!(
+  user_name:"person3",
+  email:"person3@example.com",
+  password:"qweqwe",
+  password_confirmation:"qweqwe",
+  role:"user"
+)
+
+user4=User.create!(
+  user_name:"person4",
+  email:"person4@example.com",
+  password:"qweqwe",
+  password_confirmation:"qweqwe",
+  role:"user"
+)
+
+#create blogs
+Blog.create!(
+  title:"First admin2 blog",
+  body:"This are the rules of the website",
+  user:admin2
+)
+
+Blog.create!(
+  title:"First person1 blog",
+  body:"first time writing this stuff",
+  user:user1
+)
+Blog.create!(
+  title:"second person1 blog",
+  body:"second time writing this stuff",
+  user:user2
+)
+
+Blog.create!(
+  title:"third person1 blog",
+  body:"third time writing this stuff",
+  user:user3
+)
+Blog.create!(
+  title:"fourth person1 blog",
+  body:"fourth time writing this stuff",
+  user:user4
+)
