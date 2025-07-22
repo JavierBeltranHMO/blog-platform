@@ -40,9 +40,10 @@
 
   <%# reply %>
   <% if user_signed_in? %>
-    <%= link_to "Reply", "#", class:"btn btn-sm btn-link", data: {toggle:"collapse", target: "#reply-form-#{comment.id}"} %>
+    <%= link_to "Reply", "#", class:"btn btn-sm btn-link", data: { "bs-toggle" => "collapse", "bs-target" => "#reply-form-#{comment.id}" }, role:"button" %>
 
-    <div class="collapse mt-2" id="reply-form-#{comment.id}">
+
+    <div class="collapse mt-2" id="reply-form-<%= comment.id %>">
       <%= form_with model: [@blog, Comment.new], local:true do |f| %>
       <%= f.hidden_field :parent_id, value: comment.id %>
       <div class="mb-2">
