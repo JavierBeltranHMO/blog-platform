@@ -60,28 +60,6 @@ This project is a Rails-based blog platform with user roles, rich search, admin 
 - [ ] **Security improvements**: Rate limiting, captcha on sign-up/comment forms.
 - [ ] **UI/UX polishing**: Improve design, responsiveness, and accessibility.
 
----
-
-## How to Implement Nested Replies (Brief)
-
-- Use recursive partials to render comments and their replies.
-- Modify the Comment model for recursive associations (`parent`, `replies`).
-- Use Bootstrap's collapse with unique IDs for reply forms.
-- Example partial `_comment.html.erb` recursively rendering replies.
-
----
-
-## Setup Instructions
-
-- Use `rails db:seed` to populate initial data including admin user and sample blogs.
-- Make sure you have PostgreSQL installed and configured.
-- Run migrations before starting the server.
-- Admin user created in seeds:  
-  Email: `admin@example.com`  
-  Password: `password`
-
----
-
 ## Screenshots
 
 1. **Admin Dashboard**:
