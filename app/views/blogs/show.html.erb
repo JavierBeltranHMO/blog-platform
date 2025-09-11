@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between align-items-start">
   <h1><%= @blog.title%></h1>
-  <% if policy(@blog).edit? && policy(@blog).destroy?%>
+  <% if current_user&.admin? && policy(@blog).edit? && policy(@blog).destroy? %>
     <div class="dropdown">
       <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="blogMenu" data-bs-toggle="dropdown" data-turbo="false" aria-expanded="false">
         <i class="bi bi-three-dots-vertical"></i>
@@ -30,47 +30,41 @@
 <% else %>
   <p class="text-muted mb-0"><em>Deleted</em></p>
 <% end %>
-
 <%# Comment Section %>
 <h3 class="mt-5">Comments</h3>
 <% @blog.comments.where(parent_id: nil).each do |comment| %>
-<div class="mb-3 p-3 border rounded bg-light">
-  <strong><%=comment.user.user_name%> </strong>
-  <p><%= comment.body%> </p>
-
-  <%# reply %>
-  <% if user_signed_in? %>
-    <%= link_to "Reply", "#", class:"btn btn-sm btn-link", data: { "bs-toggle" => "collapse", "bs-target" => "#reply-form-#{comment.id}" }, role:"button" %>
-
-
-    <div class="collapse mt-2" id="reply-form-<%= comment.id %>">
-      <%= form_with model: [@blog, Comment.new], local:true do |f| %>
-      <%= f.hidden_field :parent_id, value: comment.id %>
-      <div class="mb-2">
-        <%= f.text_area :body, class: "form-control", rows:2, placeholder:"Your reply..." %>
+  <div class="mb-3 p-3 border rounded bg-light">
+    <strong><%=comment.user.user_name%> </strong>
+    <p><%= comment.body%> </p>
+    <%# reply %>
+    <% if user_signed_in? %>
+      <%= link_to "Reply", "#", class:"btn btn-sm btn-link", data: { "bs-toggle" => "collapse", "bs-target" => "#reply-form-#{comment.id}" }, role:"button" %>
+      <div class="collapse mt-2" id="reply-form-<%= comment.id %>">
+        <%= form_with model: [@blog, Comment.new], local:true do |f| %>
+          <%= f.hidden_field :parent_id, value: comment.id %>
+          <div class="mb-2">
+            <%= f.text_area :body, class: "form-control", rows:2, placeholder:"Your reply..." %>
+          </div>
+          <%= f.submit "Reply", class: "btn btn-sm btn-primary" %>
+        <% end %>
       </div>
-      <%= f.submit "Reply", class: "btn btn-sm btn-primary" %>
-      <% end %>
-    </div>
-  <% end %>
-
-  <%# Show replies %>
-  <% comment.replies.each do |reply| %>
-  <div class="mt-2 ms-4 p-2 border-start">
-    <strong> <%= reply.user.user_name %> </strong>
-    <p><%= reply.body %> </p>
+    <% end %>
+    <%# Show replies %>
+    <% comment.replies.each do |reply| %>
+      <div class="mt-2 ms-4 p-2 border-start">
+        <strong> <%= reply.user.user_name %> </strong>
+        <p><%= reply.body %> </p>
+      </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
 <% end %>
-
 <% if user_signed_in? %>
   <h4 class="mt-4">Leave a comment</h4>
   <%= form_with model: [@blog, Comment.new], local: true do |f| %>
-  <div class="mb-3">
-    <%= f.text_area :body, class:"form-control", rows:3, placeholder:"Write your comment here..." %>
-  </div>
-  <%= f.submit "Comment", class:"btn btn-primary" %>
+    <div class="mb-3">
+      <%= f.text_area :body, class:"form-control", rows:3, placeholder:"Write your comment here..." %>
+    </div>
+    <%= f.submit "Comment", class:"btn btn-primary" %>
   <% end %>
 <% else %>
   <p>Please <%= link_to "Sign in", new_user_session_path %> to comment </p>
