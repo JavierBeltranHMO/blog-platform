@@ -95,3 +95,37 @@ This project is a Rails-based blog platform with user roles, rich search, admin 
 | Notifications                     | ⬜ Planned |
 | Security Improvements             | ⬜ Planned |
 | UI/UX Polishing                   | ⬜ Planned |
+
+---
+
+## Demo Userss
+
+# admin2
+
+email: admin2@example.com"
+password: qweqwe
+role: admin
+
+# person1
+
+email: person1@example.com"
+password: qweqwe
+role: user
+
+# person2
+
+email: person2@example.com"
+password: qweqwe
+role: user
+
+# person3
+
+email: person3@example.com"
+password: qweqwe
+role: user
+
+# person4
+
+email: person4@example.com"
+password: qweqwe
+role: user
