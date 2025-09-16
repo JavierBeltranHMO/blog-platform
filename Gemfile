@@ -27,7 +27,7 @@ gem "thruster", require: false
 gem 'devise', '~> 4.9', '>= 4.9.4'
 gem 'friendly_id', '~> 5.5.0'
 gem 'ransack'
-gem 'pg', '~> 1.5', '>= 1.5.9'
+gem 'pg', '~> 1.6'
 gem "image_processing", "~> 1.14"
 gem "pundit", "~> 2.5"
 
