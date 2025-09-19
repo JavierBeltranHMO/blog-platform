@@ -8,6 +8,7 @@ Github
 
 <br>
 <div align="center">
+   <!-- TODO -->
    <a href="#"><img src="#" alt="logo" width="80" height="80"></a>
 
    <h3 align="center">Blog Platform</h3>
@@ -20,7 +21,7 @@ Github
 
 <!-- TABLE OF CONTETS -->
  <details>
-   <summary>Tabke of Contents</summary>
+   <summary>Table of Contents</summary>
    <ol>
       <li>
          <a href="#demo">Demo</a>
@@ -31,7 +32,7 @@ Github
             <li><a href="#built-with">Built With</a></li>
          </ul>
       </li>
-      <li><a href="#instalation">Instalation</a></li>
+      <li><a href="#installation">Instalation</a></li>
       <li><a href="#features-implemented">Features Implemented</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -46,37 +47,20 @@ Github
 
 🔗 [Live Demo](https://blog-platform-8wx4.onrender.com)
 
-### Demo Userss
+### Demo Users
 
-#### admin2
+#### Admin
 
-email: admin2@example.com"
-password: qweqwe
-role: admin
+- Email: `admin2@example.com`
+- Password: `qweqwe`
+- Role: admin
 
-#### person1
+#### Users
 
-email: person1@example.com"
-password: qweqwe
-role: user
-
-#### person2
-
-email: person2@example.com"
-password: qweqwe
-role: user
-
-#### person3
-
-email: person3@example.com"
-password: qweqwe
-role: user
-
-#### person4
-
-email: person4@example.com"
-password: qweqwe
-role: user
+- Email: `person1@example.com` / Password: `qweqwe` / Role: user
+- Email: `person2@example.com` / Password: `qweqwe` / Role: user
+- Email: `person3@example.com` / Password: `qweqwe` / Role: user
+- Email: `person4@example.com` / Password: `qweqwe` / Role: user
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -88,8 +72,6 @@ role: user
 
 ### Built With
 
-Ruby on Rails 7
-
 - [![Ruby on Rails][Rails-badge]][Rails-url]
 - [![PostgreSQL][Postgres-badge]][Postgres-url]
 - [![Bootstrap][Bootstrap-badge]][Bootstrap-url]
@@ -99,7 +81,7 @@ Ruby on Rails 7
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Instalation
+## Installation
 
 1. Clone repo
 
@@ -238,26 +220,21 @@ Distributed under the Unlicense License.
 <!-- Links and images -->
 
 [//]: # "Badge links"
-[Rails-badge]: https://img.shields.io/badge/Ruby%20on%20Rails-7-red
+[Rails-badge]: https://img.shields.io/badge/Ruby%20on%20Rails-7-red?style=for-the-badge&logo=ruby&logoColor=white
 [Rails-url]: https://rubyonrails.org/
-[Postgres-badge]: https://img.shields.io/badge/PostgreSQL-13-blue
+[Postgres-badge]: https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white
 [Postgres-url]: https://www.postgresql.org/
-[Bootstrap-badge]: https://img.shields.io/badge/Bootstrap-5-purple
+[Bootstrap-badge]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com/
-[Stimulus-badge]: https://img.shields.io/badge/Stimulus-3-orange
+[Stimulus-badge]: https://img.shields.io/badge/Stimulus-FF6F61?style=for-the-badge&logo=stimulus&logoColor=white
 [Stimulus-url]: https://stimulus.hotwired.dev/
-[Hotwire-badge]: https://img.shields.io/badge/Hotwire-1-yellow
+[Hotwire-badge]: https://img.shields.io/badge/Hotwire-FF2D20?style=for-the-badge&logo=hotwire&logoColor=white
 [Hotwire-url]: https://hotwired.dev/
-[Render-badge]: https://img.shields.io/badge/Render-Deployment-brightgreen
+[Render-badge]: https://img.shields.io/badge/Render-00CFFF?style=for-the-badge&logo=render&logoColor=white
 [Render-url]: https://render.com/
-[//]: #Images
-
-[blog-screenshot](app/assets/images/blog-sc.png)
-[admin-dashboard](app/assets/images/dashboard.png)
-[search-filter](app/assets/images/searchandsort.png)
-[blog-show](app/assets/images/comments.png)
-[profile](app/assets/images/profile.png)
-
-```
-
-```
+[//]: # "Images"
+[blog-screenshot]: (app/assets/images/blog-sc.png)
+[admin-dashboard]: (app/assets/images/dashboard.png)
+[search-filter]: (app/assets/images/searchandsort.png)
+[blog-show]: (app/assets/images/comments.png)
+[profile]: (app/assets/images/profile.png)
