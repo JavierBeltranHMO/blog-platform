@@ -233,8 +233,8 @@ Distributed under the Unlicense License.
 [Render-badge]: https://img.shields.io/badge/Render-00CFFF?style=for-the-badge&logo=render&logoColor=white
 [Render-url]: https://render.com/
 [//]: # "Images"
-[blog-screenshot]: (app/assets/images/blog-sc.png)
-[admin-dashboard]: (app/assets/images/dashboard.png)
-[search-filter]: (app/assets/images/searchandsort.png)
-[blog-show]: (app/assets/images/comments.png)
-[profile]: (app/assets/images/profile.png)
+[blog-screenshot]: app/assets/images/blog-sc.png
+[admin-dashboard]: app/assets/images/dashboard.png
+[search-filter]: app/assets/images/searchandsort.png
+[blog-show]: app/assets/images/comments.png
+[profile]: app/assets/images/profile.png
