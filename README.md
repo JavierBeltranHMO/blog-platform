@@ -1,8 +1,133 @@
-# Blog Platform
+<a id="readme-top"></a>
 
-This project is a Rails-based blog platform with user roles, rich search, admin panel, comments (including threaded replies), and other features.
+<!-- Shields
+LinkedIn
+Portfolio
+Github
+ -->
 
----
+<br>
+<div align="center">
+   <a href="#"><img src="#" alt="logo" width="80" height="80"></a>
+
+   <h3 align="center">Blog Platform</h3>
+
+   <p align="center">
+      This project is a Rails-based blog platform with user roles, 
+      rich search, admin panel, comments (including threaded replies), and other features.
+   </p>
+</div>
+
+<!-- TABLE OF CONTETS -->
+ <details>
+   <summary>Tabke of Contents</summary>
+   <ol>
+      <li>
+         <a href="#demo">Demo</a>
+      </li>
+      <li>
+         <a href="#about-the-project">About the Project</a>
+         <ul>
+            <li><a href="#built-with">Built With</a></li>
+         </ul>
+      </li>
+      <li><a href="#instalation">Instalation</a></li>
+      <li><a href="#features-implemented">Features Implemented</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#licence">License</a></li>
+      <li><a href="#acknowledgments">Acknowledgments</a></li>
+   </ol>
+ </details>
+
+<!-- DEMO -->
+
+## Demo 🚀
+
+🔗 [Live Demo](https://blog-platform-8wx4.onrender.com)
+
+### Demo Userss
+
+#### admin2
+
+email: admin2@example.com"
+password: qweqwe
+role: admin
+
+#### person1
+
+email: person1@example.com"
+password: qweqwe
+role: user
+
+#### person2
+
+email: person2@example.com"
+password: qweqwe
+role: user
+
+#### person3
+
+email: person3@example.com"
+password: qweqwe
+role: user
+
+#### person4
+
+email: person4@example.com"
+password: qweqwe
+role: user
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ABOUT -->
+
+## About The Project
+
+[![Blog Platform Screenshot][blog-screenshot]](https://blog-platform-8wx4.onrender.com)
+
+### Built With
+
+Ruby on Rails 7
+
+- [![Ruby on Rails][Rails-badge]][Rails-url]
+- [![PostgreSQL][Postgres-badge]][Postgres-url]
+- [![Bootstrap][Bootstrap-badge]][Bootstrap-url]
+- [![Stimulus][Stimulus-badge]][Stimulus-url]
+- [![Hotwire][Hotwire-badge]][Hotwire-url]
+- [![Render][Render-badge]][Render-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Instalation
+
+1. Clone repo
+
+```sh
+git clone git@gitlab.com:javier.beltran.hmo/blog-platform.git
+cd blog-platform
+```
+
+2. Install dependencies
+
+```sh
+bundle install
+```
+
+3. Setup Database
+
+```sh
+rails db:create db:migrate db:seed
+```
+
+4. Start Server
+
+```sh
+rails s
+Open http://localhost:3000
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Features Implemented
 
@@ -46,34 +171,22 @@ This project is a Rails-based blog platform with user roles, rich search, admin 
 - Comments show author and creation date.
 - Policies and permissions to allow commenting only for signed-in users.
 
----
-
-## Planned/Future Features
-
-- [ ] **Nested replies**: Allow replies to replies to arbitrary depth, rendering comments recursively for better threaded discussions.
-- [ ] **Pagination**: Add paginated views for blogs, comments, and users to improve performance and usability.
-- [ ] **Advanced search**: Integrate PostgreSQL full-text search (pg_search) for better search performance and ranking.
-- [ ] **Admin panel enhancements**: Add more management features such as blog moderation, comment moderation, and metrics dashboards.
-- [ ] **Blog images**: Support uploading and displaying cover images for blogs.
-- [ ] **Comment editing and deletion**: Allow users to edit or delete their own comments.
-- [ ] **Notifications**: Notify users when their blogs receive comments or replies.
-- [ ] **Security improvements**: Rate limiting, captcha on sign-up/comment forms.
-- [ ] **UI/UX polishing**: Improve design, responsiveness, and accessibility.
-
-## Screenshots
+### Screenshots
 
 1. **Admin Dashboard**:
-   [Admin Dashboard](app/assets/images/dashboard.png)
+   [![Admin Dashboard][admin-dashboard]]
 2. **Blog index with search and filters**
-   [Search filter](app/assets/images/searchandsort.png)
+   [![Search filter][search-filter]]
 3. **Blog show page**:
-   [Blog Show](app/assets/images/comments.png)
+   [![Blog Show][blog-show]]
 4. **User Profile page**:
-   [Profile](app/assets/images/profile.png)
+   [![Profile][profile]]
 
----
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Summary Checklist
+## Roadmap
+
+### Summary Checklist
 
 | Feature                           | Status     |
 | --------------------------------- | ---------- |
@@ -96,36 +209,55 @@ This project is a Rails-based blog platform with user roles, rich search, admin 
 | Security Improvements             | ⬜ Planned |
 | UI/UX Polishing                   | ⬜ Planned |
 
----
+- [ ] **Nested replies**: Allow replies to replies to arbitrary depth, rendering comments recursively for better threaded discussions.
+- [ ] **Pagination**: Add paginated views for blogs, comments, and users to improve performance and usability.
+- [ ] **Advanced search**: Integrate PostgreSQL full-text search (pg_search) for better search performance and ranking.
+- [ ] **Admin panel enhancements**: Add more management features such as blog moderation, comment moderation, and metrics dashboards.
+- [ ] **Blog images**: Support uploading and displaying cover images for blogs.
+- [ ] **Comment editing and deletion**: Allow users to edit or delete their own comments.
+- [ ] **Notifications**: Notify users when their blogs receive comments or replies.
+- [ ] **Security improvements**: Rate limiting, captcha on sign-up/comment forms.
+- [ ] **UI/UX polishing**: Improve design, responsiveness, and accessibility.
 
-## Demo Userss
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# admin2
+## Contact
 
-email: admin2@example.com"
-password: qweqwe
-role: admin
+Javier Beltran - [LinkedIn](https://www.linkedin.com/in/javier-alejandro-beltran-montiel-3172222b1/)
 
-# person1
+Project Link: [https://gitlab.com/javier.beltran.hmo/blog-platform](https://gitlab.com/javier.beltran.hmo/blog-platform)
 
-email: person1@example.com"
-password: qweqwe
-role: user
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# person2
+## License
 
-email: person2@example.com"
-password: qweqwe
-role: user
+Distributed under the Unlicense License.
 
-# person3
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-email: person3@example.com"
-password: qweqwe
-role: user
+<!-- Links and images -->
 
-# person4
+[//]: # "Badge links"
+[Rails-badge]: https://img.shields.io/badge/Ruby%20on%20Rails-7-red
+[Rails-url]: https://rubyonrails.org/
+[Postgres-badge]: https://img.shields.io/badge/PostgreSQL-13-blue
+[Postgres-url]: https://www.postgresql.org/
+[Bootstrap-badge]: https://img.shields.io/badge/Bootstrap-5-purple
+[Bootstrap-url]: https://getbootstrap.com/
+[Stimulus-badge]: https://img.shields.io/badge/Stimulus-3-orange
+[Stimulus-url]: https://stimulus.hotwired.dev/
+[Hotwire-badge]: https://img.shields.io/badge/Hotwire-1-yellow
+[Hotwire-url]: https://hotwired.dev/
+[Render-badge]: https://img.shields.io/badge/Render-Deployment-brightgreen
+[Render-url]: https://render.com/
+[//]: #Images
 
-email: person4@example.com"
-password: qweqwe
-role: user
+[blog-screenshot](app/assets/images/blog-sc.png)
+[admin-dashboard](app/assets/images/dashboard.png)
+[search-filter](app/assets/images/searchandsort.png)
+[blog-show](app/assets/images/comments.png)
+[profile](app/assets/images/profile.png)
+
+```
+
+```
