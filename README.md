@@ -113,39 +113,39 @@ Open http://localhost:3000
 
 ## Features Implemented
 
-### User Roles and Authorization
+### 🧑‍💼 User Roles and Authorization
 
 - Role-based access control (`admin` and `user`) with roles stored as strings.
 - Authorization using Pundit policies to protect blog editing, deletion, and admin features.
 
-### Admin Panel
+### 🛠️ Admin Panel
 
 - Admin dashboard to manage users and blogs.
 - Ability to toggle user roles (admin/user).
 - Password confirmation required for user deletion.
 - Proper routing and UI controls for admin actions.
 
-### Authentication and User Profiles
+### 🔑👤 Authentication and User Profiles
 
 - Devise integration with customized RegistrationsController.
 - User profile includes `user_name` and `bio` fields.
 - Sign-up and account update forms permit custom fields (`user_name`, `bio`).
 
-### Blogs
+### 📋 Blogs
 
 - Blogs belong to users, with friendly URLs using FriendlyId.
 - Blog CRUD with permissions based on roles.
 - Featured blogs functionality (boolean flag).
 - Display featured blogs with proper styling and links.
 
-### Search and Filtering
+### 🔍 Search and Filtering
 
 - Integrated Ransack for powerful search capabilities on blogs.
 - Search form on home page with filters for title, author, and date.
 - Sorting options for blogs (date ascending/descending, author A-Z/Z-A, title A-Z/Z-A).
 - Configured `ransackable_attributes` and `ransackable_associations` to enable searching related user attributes.
 
-### Comments
+### 🔄 Comments
 
 - Users can leave comments on blogs.
 - Support for threaded replies to comments (currently single-level).
