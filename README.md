@@ -155,12 +155,19 @@ Open http://localhost:3000
 ### Screenshots
 
 1. **Admin Dashboard**:
+
    ![Admin Dashboard][admin-dashboard]
+
 2. **Blog index with search and filters**
+
    ![Search filter][search-filter]
+
 3. **Blog show page**:
+
    ![Blog Show][blog-show]
+
 4. **User Profile page**:
+
    ![Profile][profile]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
