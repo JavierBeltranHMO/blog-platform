@@ -9,9 +9,9 @@ Github
 <br>
 <div align="center">
    <!-- TODO -->
-   <a href="#"><img src="#" alt="logo" width="80" height="80"></a>
+   <a href="https://blog-platform-8wx4.onrender.com"><img src="app/assets/images/logo.png" alt="logo" width="auto" height="80"></a>
 
-   <h3 align="center">Blog Platform</h3>
+   <h3 align="center">ThreadHub</h3>
 
    <p align="center">
       This project is a Rails-based blog platform with user roles, 

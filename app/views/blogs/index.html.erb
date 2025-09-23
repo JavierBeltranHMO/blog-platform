@@ -1,12 +1,11 @@
 <% content_for :title, "Blogs" %>
 <div class="container my-4">
-  <h1 class="mb-4">Blog Platform</h1>
+  <h1 class="mb-4">ThreadHub</h1>
 </div>
 <%= search_form_for @q, url:blogs_path, method: :get, html: {class:"row g-3 align-items-center mb-4"} do |f| %>
   <div class="col-auto">
     <%= label_tag :filter, "Search by", class:"col-form-label" %>
   </div>
-
   <div class="col-auto">
     <%= select_tag :filter, options_for_select([
     ['Title', 'title_cont'],
@@ -14,11 +13,9 @@
       ['Author', 'user_user_name_cont'],
     ], params[:filter]), class:"form-select", onchange: "document.getElementById('search_field').name= 'q[' + this.value + ']';" %>
   </div>
-
   <div class="col-auto">
     <%= text_field_tag "q[#{params[:filter] || 'title_cont'}]", params.dig(:q, params[:filter] || 'title_cont'), class:"form-control", id:"search_field", placeholder:"Enter search term"  %>
   </div>
-
   <div class="col-auto">
     <%= f.submit "Search", class: "btn-primary" %>
   </div>
